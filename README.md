@@ -13,7 +13,8 @@ Before running this application, ensure you have the following prerequisites ins
 
 ## Installation and Setup
 
-1. Clone the repository to your local machine: git clone https://github.com/connerreed/Fraternity-Database-Tracker.git
+1. Clone the repository to your local machine: 
+  -git clone https://github.com/connerreed/Fraternity-Database-Tracker.git
 
 2. Create a MySQL database and import the necessary SQL files. Instructions can be found in the `sql/README.md` file.
 
