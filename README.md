@@ -14,15 +14,20 @@ Before running this application, ensure you have the following prerequisites ins
 ## Installation and Setup
 
 1. Clone the repository to your local machine: 
-  -git clone https://github.com/connerreed/Fraternity-Database-Tracker.git
+
+        - git clone https://github.com/connerreed/Fraternity-Database-Tracker.git
 
 2. Create a MySQL database and import the necessary SQL files. Instructions can be found in the `sql/README.md` file.
 
 3. Update the database connection details in the `src/com/yourname/fraternitytracker/DatabaseManager.java` file.
 
-4. Compile the Java source code files: javac src/myfraternity/*.java -d bin/
+4. Compile the Java source code files: 
 
-5. Run the application: java -cp bin/ myfraternity.Main
+        - javac src/myfraternity/*.java -d bin/
+
+5. Run the application:
+
+        - java -cp bin/ myfraternity.Main
 
 
 ## Usage
