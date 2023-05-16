@@ -18,12 +18,12 @@ To run the fraternity tracking application, you need to set up a MySQL database 
       
            - Replace 'your_username' with your MySQL username, `your_database_name` with the name of your created database, and `file_name.sql` with the appropriate SQL file name.
       
-4. Update the database connection details: In the `src/myfraternity/util/DBUtil.java` file of this repository, update the connection details to match your MySQL database. 
-    Modify the `url`, `username`, and `password` variables with your specific database information.
-        - String url = "jdbc:mysql://localhost:3306/your_database_name";
-        - String username = "your_username";
-        - String password = "your_password";
-            - Replace `your_database_name`, `your_username`, and `your_password` with your actual database details. 
+4. Update the database connection details: In the `src/myfraternity/util/DBUtil.java` file of this repository, update the connection details to match your MySQL database. Modify the `url`, `username`, and `password` variables with your specific database information.
+
+   - String url = "jdbc:mysql://localhost:3306/your_database_name";
+   - String username = "your_username";
+   - String password = "your_password";
+      - Replace `your_database_name`, `your_username`, and `your_password` with your actual database details. 
 
 
 
