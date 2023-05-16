@@ -1,4 +1,4 @@
-import org.myfraternity.gui.MasterWindow;
+import com.myfraternity.gui.MasterWindow;
 
 public class Main {
     public static void main(String[] args) {
