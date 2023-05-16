@@ -1,22 +1,56 @@
-1. Import SQL files to MySQL
-2. Use the class DBUtil (found under "org.myfraternity.util.DBUtil") and change the username and password to connect to your MySQL database as needed for your system.
-3. In order to execute this application, on the command line get inside the FraternityDatabase directory.
-	Then, run this command for Windows: "start.bat" or run this for Mac/Linux: "start.sh". The program will then start.
-4. Once Main is running, a window will open with a set of buttons, one for each action. 
-5. The top section of the main window has a selection of entities to manage. Clicking one will open a new window, which is the management screen of that entity.
-	The bottom section of the main window has a selection of views you can see. Clicking one will open a new window, which will show the view you selected.
-	All windows besides the main window are safe to close. Closing main window will result in program termination.
-6. Inside any of the entity management windows, you are shown a table of all data stored for that entity.
-	There are 3 operations you can perform: ADD, DELETE, and UPDATE
-	ADD: To add, simply click the "Add" button. This will pull up a data entry form.
-		Any fields that take a Date as input must be formatted as "YYYY-MM-DD"
-		Any fields that have a dropdown box are where you must select the entity in order to create the required relation between them.
-			For example, in the Member creation, you must select which chapter that member belongs to.
-		Once you are done filling out all fields, click the "Add" button at the bottom of the screen.
-			The current data entry form will then close, and changes are reflected upon the view section of the Entity management screen of that entity you just added.
-	DELETE: To delete a row, simply click the row you want to delete in the table, and then click the "Delete" button on the screen.
-		After you click "Delete", the table should update with that row removed.
-	UPDATE: To update a row, simply double-click an attribute to enter edit-mode with that attribute.
-		Once you are done updating that attribute, press "enter" on the keyboard and the changes will reflect in the database and on the screen.
+# Fraternity Tracking Application
 
-		
+This application is designed to track information about a fraternity using a MySQL database and a Java GUI.
+
+
+## Prerequisites
+
+Before running this application, ensure you have the following prerequisites installed:
+
+- Java Development Kit (JDK) 8 or above
+- MySQL Server
+
+
+## Installation and Setup
+
+1. Clone the repository to your local machine: git clone https://github.com/connerreed/Fraternity-Database-Tracker.git
+
+2. Create a MySQL database and import the necessary SQL files. Instructions can be found in the `sql/README.md` file.
+
+3. Update the database connection details in the `src/com/yourname/fraternitytracker/DatabaseManager.java` file.
+
+4. Compile the Java source code files: javac src/myfraternity/*.java -d bin/
+
+5. Run the application: java -cp bin/ myfraternity.Main
+
+
+## Usage
+
+1. Launch the application by executing the steps in the "Installation and Setup" section.
+
+2. The GUI will appear, allowing you to perform various actions such as adding new members, updating information, and generating reports.
+
+3. Use the buttons and input fields in the GUI to interact with the database and modify fraternity information.
+
+
+## File Structure
+
+- `lib/`: Contains the MySQL Connector JAR file for establishing the database connection.
+- `sql/`: Contains SQL scripts for database setup, schema, and sample data.
+- `src/`: Contains the Java source code files for the fraternity tracking application.
+- `README.md`: This file provides an overview of the project.
+
+
+## Contributing
+
+If you encounter any issues, have suggestions for improvements, or would like to contribute, please create an issue or submit a pull request.
+
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+
+## Contact Information
+
+For any inquiries or questions, please contact Conner Reed at connerdreed@gmail.com
