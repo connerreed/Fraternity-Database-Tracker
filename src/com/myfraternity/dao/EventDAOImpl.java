@@ -1,11 +1,8 @@
 package com.myfraternity.dao;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
-import com.myfraternity.entity.Chapter;
 import com.myfraternity.entity.Event;
 import com.myfraternity.util.DBUtil;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
