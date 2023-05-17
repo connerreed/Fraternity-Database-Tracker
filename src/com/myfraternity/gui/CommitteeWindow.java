@@ -2,19 +2,12 @@ package com.myfraternity.gui;
 
 import com.myfraternity.dao.ChapterDAOImpl;
 import com.myfraternity.dao.CommitteeDAOImpl;
-import com.myfraternity.dao.CommitteeDAOImpl;
-import com.myfraternity.dao.EventDAOImpl;
 import com.myfraternity.entity.Chapter;
 import com.myfraternity.entity.Committee;
-import com.myfraternity.entity.Committee;
-import com.myfraternity.entity.Committee;
-import com.myfraternity.entity.Event;
-
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
@@ -22,7 +15,6 @@ import java.util.Vector;
 public class CommitteeWindow {
 
     private boolean addEditFrameOpen = false;
-    private int committeeId;
     private String name;
     private String description;
     private int chapterId;
@@ -138,7 +130,7 @@ public class CommitteeWindow {
 
     public void createAddEditFrame() {
         JFrame CommitteeEditFrame = new JFrame();
-        JPanel CommitteeEditPanel = new JPanel(new GridLayout(2, 2)); // FIXME: on other classes, this needs to be able to hold amount of attributes
+        JPanel CommitteeEditPanel = new JPanel(new GridLayout(2, 2));
         //CommitteeEditPanel.setLayout(new BoxLayout(CommitteeEditPanel, BoxLayout.PAGE_AXIS));
         CommitteeEditFrame.setSize(750, 750);
         CommitteeEditFrame.setLocationRelativeTo(null);
@@ -205,6 +197,7 @@ public class CommitteeWindow {
             description = descriptionTextField.getText();
             Scanner scn = new Scanner((String)chapterComboBox.getSelectedItem());
             chapterId = scn.nextInt();
+            scn.close();
 
             Committee committee = new Committee();
             committee.setName(name);

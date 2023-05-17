@@ -2,12 +2,8 @@ package com.myfraternity.gui;
 
 import com.myfraternity.dao.ChapterDAOImpl;
 import com.myfraternity.dao.MemberDAOImpl;
-import com.myfraternity.dao.MemberDAOImpl;
 import com.myfraternity.entity.Chapter;
 import com.myfraternity.entity.Member;
-import com.myfraternity.entity.Member;
-import com.myfraternity.entity.Member;
-
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
@@ -20,7 +16,6 @@ import java.util.Vector;
 public class MemberWindow {
 
     private boolean addEditFrameOpen = false;
-    private int memberId;
     private String firstName;
     private String lastName;
     private String email;
@@ -148,7 +143,7 @@ public class MemberWindow {
 
     public void createAddEditFrame() {
         JFrame MemberEditFrame = new JFrame();
-        JPanel MemberEditPanel = new JPanel(new GridLayout(3, 3)); // FIXME: on other classes, this needs to be able to hold amount of attributes
+        JPanel MemberEditPanel = new JPanel(new GridLayout(3, 3));
         //MemberEditPanel.setLayout(new BoxLayout(MemberEditPanel, BoxLayout.PAGE_AXIS));
         MemberEditFrame.setSize(750, 750);
         MemberEditFrame.setLocationRelativeTo(null);
@@ -271,6 +266,7 @@ public class MemberWindow {
             status = statusTextField.getText();
             Scanner scn = new Scanner( (String)chapterComboBox.getSelectedItem());
             chapterId = scn.nextInt();
+            scn.close();
 
             Member member = new Member();
             member.setFirstName(firstName);

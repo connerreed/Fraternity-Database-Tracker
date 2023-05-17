@@ -1,13 +1,9 @@
 package com.myfraternity.gui;
 
 import com.myfraternity.dao.ChapterDAOImpl;
-import com.myfraternity.dao.CommitteeDAOImpl;
 import com.myfraternity.dao.EventDAOImpl;
 import com.myfraternity.entity.Chapter;
-import com.myfraternity.entity.Committee;
 import com.myfraternity.entity.Event;
-import com.myfraternity.entity.Event;
-
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -21,7 +17,6 @@ import java.util.Vector;
 public class EventWindow {
 
     private boolean addEditFrameOpen = false;
-    private int eventId;
     private String name;
     private String location;
     private java.sql.Date date;
@@ -142,7 +137,7 @@ public class EventWindow {
 
     public void createAddEditFrame() {
         JFrame EventEditFrame = new JFrame();
-        JPanel EventEditPanel = new JPanel(new GridLayout(3, 2)); // FIXME: on other classes, this needs to be able to hold amount of attributes
+        JPanel EventEditPanel = new JPanel(new GridLayout(3, 2));
         //EventEditPanel.setLayout(new BoxLayout(EventEditPanel, BoxLayout.PAGE_AXIS));
         EventEditFrame.setSize(750, 750);
         EventEditFrame.setLocationRelativeTo(null);
@@ -232,6 +227,7 @@ public class EventWindow {
             description = descriptionTextField.getText();
             Scanner scn = new Scanner((String)chapterComboBox.getSelectedItem());
             chapterId = scn.nextInt();
+            scn.close();
 
             Event Event = new Event();
             Event.setName(name);

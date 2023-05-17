@@ -1,10 +1,8 @@
 package com.myfraternity.dao;
 
-import com.myfraternity.entity.Chapter;
 import com.myfraternity.entity.Officer;
 import com.myfraternity.util.DBUtil;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -60,7 +58,6 @@ public class OfficerDAOImpl {
     public static void updateOfficer(Officer officer) {
         String query = "UPDATE officer SET position = ?, start_date = ?, end_date = ?, member_id = ? WHERE officer_id = ?";
         try {
-            Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(query);
             preparedStatement.setString(1, officer.getPosition());
             preparedStatement.setDate(2, officer.getStartDate());

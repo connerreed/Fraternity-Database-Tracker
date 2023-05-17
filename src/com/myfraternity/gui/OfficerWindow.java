@@ -1,13 +1,9 @@
 package com.myfraternity.gui;
 
-import com.myfraternity.dao.ChapterDAOImpl;
 import com.myfraternity.dao.MemberDAOImpl;
-import com.myfraternity.dao.OfficerDAOImpl;
 import com.myfraternity.dao.OfficerDAOImpl;
 import com.myfraternity.entity.*;
 import com.myfraternity.entity.Officer;
-import com.myfraternity.entity.Officer;
-
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
@@ -20,7 +16,6 @@ import java.util.Vector;
 public class OfficerWindow {
 
     private boolean addEditFrameOpen = false;
-    private int officerId;
     private String position;
     private Date startDate;
     private Date endDate;
@@ -139,7 +134,7 @@ public class OfficerWindow {
 
     public void createAddEditFrame() {
         JFrame OfficerEditFrame = new JFrame();
-        JPanel OfficerEditPanel = new JPanel(new GridLayout(2, 3)); // FIXME: on other classes, this needs to be able to hold amount of attributes
+        JPanel OfficerEditPanel = new JPanel(new GridLayout(2, 3));
         //OfficerEditPanel.setLayout(new BoxLayout(OfficerEditPanel, BoxLayout.PAGE_AXIS));
         OfficerEditFrame.setSize(750, 750);
         OfficerEditFrame.setLocationRelativeTo(null);
@@ -220,6 +215,7 @@ public class OfficerWindow {
             endDate = Date.valueOf(endDateTextField.getText());
             Scanner scn =new Scanner((String)memberComboBox.getSelectedItem());
             memberId = scn.nextInt();
+            scn.close();
 
             Officer officer = new Officer();
             officer.setPosition(position);

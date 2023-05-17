@@ -1,18 +1,8 @@
 package com.myfraternity.gui;
 
 import com.myfraternity.dao.CommitteeMemberDAOImpl;
-import com.myfraternity.dao.MemberDAOImpl;
-import com.myfraternity.dao.PaymentDAOImpl;
-import com.myfraternity.entity.CommitteeMember;
-import com.myfraternity.entity.Member;
-import com.myfraternity.entity.Payment;
-import com.myfraternity.entity.Payment;
-
 import javax.swing.*;
-import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
-import java.sql.Date;
 import java.util.*;
 
 public class MemberOnCommitteesWindow {
@@ -22,8 +12,6 @@ public class MemberOnCommitteesWindow {
     private final JFrame paymentViewFrame;
     private JScrollPane jScrollPane;
     private final Vector<String> columnNames;
-    private final float threshold;
-    private Map<Member, Payment> map;
     public MemberOnCommitteesWindow() {
         table = null;
         paymentViewFrame = new JFrame("MemberOnCommitteesView");
@@ -31,10 +19,7 @@ public class MemberOnCommitteesWindow {
         paymentViewFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         paymentViewFrame.setLocationRelativeTo(null);
         paymentViewPanel = new JPanel();
-        threshold = (float)0.0;
 
-        // Add JTable
-        java.util.List<Payment> paymentList = PaymentDAOImpl.getAllPayments();
         Vector<Vector<Object>> data = CommitteeMemberDAOImpl.getMembersOnCommittees(); // 2d vector
         columnNames = new Vector<>();
         columnNames.add("Member Name");

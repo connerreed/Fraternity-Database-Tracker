@@ -15,7 +15,6 @@ import java.util.Vector;
 public class ChapterWindow {
 
     private boolean addEditFrameOpen = false;
-    private int chapterId;
     private String name;
     private String location;
     private java.sql.Date date;
@@ -130,7 +129,7 @@ public class ChapterWindow {
 
     public void createAddEditFrame() {
         JFrame chapterEditFrame = new JFrame();
-        JPanel chapterEditPanel = new JPanel(new GridLayout(2, 2)); // FIXME: on other classes, this needs to be able to hold amount of attributes
+        JPanel chapterEditPanel = new JPanel(new GridLayout(2, 2));
         //chapterEditPanel.setLayout(new BoxLayout(chapterEditPanel, BoxLayout.PAGE_AXIS));
         chapterEditFrame.setSize(750, 750);
         chapterEditFrame.setLocationRelativeTo(null);

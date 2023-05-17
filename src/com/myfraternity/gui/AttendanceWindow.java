@@ -133,7 +133,7 @@ public class AttendanceWindow {
 
     public void createAddEditFrame() {
         JFrame AttendanceEditFrame = new JFrame();
-        JPanel AttendanceEditPanel = new JPanel(new GridLayout(2, 2)); // FIXME: on other classes, this needs to be able to hold amount of attributes
+        JPanel AttendanceEditPanel = new JPanel(new GridLayout(2, 2));
         //AttendanceEditPanel.setLayout(new BoxLayout(AttendanceEditPanel, BoxLayout.PAGE_AXIS));
         AttendanceEditFrame.setSize(750, 750);
         AttendanceEditFrame.setLocationRelativeTo(null);
@@ -212,9 +212,11 @@ public class AttendanceWindow {
         addButton.addActionListener(e -> {
             Scanner scn = new Scanner((String)memberComboBox.getSelectedItem());
             memberId = scn.nextInt();
+            scn.close();
             scn = new Scanner((String)eventComboBox.getSelectedItem());
             eventId = scn.nextInt();
             status = statusTextField.getText();
+            scn.close();
 
             Attendance attendance = new Attendance();
             attendance.setMemberId(memberId);

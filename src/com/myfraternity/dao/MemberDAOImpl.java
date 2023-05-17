@@ -1,10 +1,8 @@
 package com.myfraternity.dao;
 
-import com.myfraternity.entity.Chapter;
 import com.myfraternity.entity.Member;
 import com.myfraternity.util.DBUtil;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -66,7 +64,6 @@ public class MemberDAOImpl {
     public static void updateMember(Member member) {
         String query = "UPDATE member SET first_name = ?, last_name = ?, email = ?, phone_number = ?, date_of_birth = ?, status = ?, chapter_id = ? WHERE member_id = ?";
         try {
-            Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(query);
             preparedStatement.setString(1, member.getFirstName());
             preparedStatement.setString(2, member.getLastName());

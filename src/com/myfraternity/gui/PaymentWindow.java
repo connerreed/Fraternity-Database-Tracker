@@ -4,8 +4,6 @@ import com.myfraternity.dao.MemberDAOImpl;
 import com.myfraternity.dao.PaymentDAOImpl;
 import com.myfraternity.entity.Member;
 import com.myfraternity.entity.Payment;
-import com.myfraternity.entity.Payment;
-
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
@@ -18,7 +16,6 @@ import java.util.Vector;
 public class PaymentWindow {
 
     private boolean addEditFrameOpen = false;
-    private int paymentId;
     private int memberId;
     private float amountDue;
     private float amountInit;
@@ -139,7 +136,7 @@ public class PaymentWindow {
 
     public void createAddEditFrame() {
         JFrame PaymentEditFrame = new JFrame();
-        JPanel PaymentEditPanel = new JPanel(new GridLayout(3, 2)); // FIXME: on other classes, this needs to be able to hold amount of attributes
+        JPanel PaymentEditPanel = new JPanel(new GridLayout(3, 2));
         //PaymentEditPanel.setLayout(new BoxLayout(PaymentEditPanel, BoxLayout.PAGE_AXIS));
         PaymentEditFrame.setSize(750, 750);
         PaymentEditFrame.setLocationRelativeTo(null);
@@ -234,6 +231,7 @@ public class PaymentWindow {
         addButton.addActionListener(e -> {
             Scanner scn = new Scanner((String)memberComboBox.getSelectedItem());
             memberId = scn.nextInt();
+            scn.close();
             amountDue = Float.parseFloat(amountDueTextField.getText());
             amountInit = Float.parseFloat(amountInitTextField.getText());
             paymentDate = Date.valueOf(dateTextField.getText());

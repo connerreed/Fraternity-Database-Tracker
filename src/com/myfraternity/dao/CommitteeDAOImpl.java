@@ -1,10 +1,8 @@
 package com.myfraternity.dao;
 
-import com.myfraternity.entity.Chapter;
 import com.myfraternity.entity.Committee;
 import com.myfraternity.util.DBUtil;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -58,7 +56,6 @@ public class CommitteeDAOImpl {
     public static void updateCommittee(Committee committee) {
         String query = "UPDATE committee SET name = ?, description = ?, chapter_id = ? WHERE committee_id = ?";
         try {
-            Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(query);
             preparedStatement.setString(1, committee.getName());
             preparedStatement.setString(2, committee.getDescription());

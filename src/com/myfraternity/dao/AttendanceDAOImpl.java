@@ -56,7 +56,6 @@ public class AttendanceDAOImpl {
     public static void updateAttendance(Attendance attendance) {
         String query = "UPDATE attendance SET status = ? WHERE member_id = ? AND event_id = ?";
         try {
-            Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(query);
             preparedStatement.setString(1, attendance.getStatus());
             preparedStatement.setInt(2, attendance.getMemberId());
