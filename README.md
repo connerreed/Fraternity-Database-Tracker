@@ -19,15 +19,17 @@ Before running this application, ensure you have the following prerequisites ins
 
 2. Create a MySQL database and import the necessary SQL files. Instructions can be found in the `sql/README.md` file.
 
-3. Update the database connection details in the `src/com/yourname/fraternitytracker/DatabaseManager.java` file.
+3. Update the database connection details in the `src/com/myfraternity/DBUtil.java` file.
 
-4. Compile the Java source code files: 
+4. Add the MySQL Connector/J JAR file located in the `lib/` directory to your project's classpath. Update your project's build configuration or build tool (e.g., Maven or Gradle) to include the JAR file as a dependency. If you're manually compiling and running your code, make sure to include the JAR file in the classpath during compilation and execution.
 
-        - javac src/myfraternity/*.java -d bin/
+5. Compile the Java source code files: 
 
-5. Run the application:
+        - javac src/com/myfraternity/*.java -d bin/
 
-        - java -cp bin/ myfraternity.Main
+6. Run the application:
+
+        - java -cp bin/ com.myfraternity.Main
 
 
 ## Usage
