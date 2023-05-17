@@ -249,7 +249,7 @@ public class MemberWindow {
             strings[i] = chapterList.get(i).getChapter_id() + " " + chapterList.get(i).getName();
         }
 
-        JComboBox chapterComboBox = new JComboBox(strings);
+        JComboBox<String> chapterComboBox = new JComboBox<>(strings);
         chapterPanel.add(chapterComboBox);
 
         MemberEditPanel.add(chapterPanel);

@@ -172,7 +172,7 @@ public class PaymentWindow {
             memberStrings[i] = memberList.get(i).getMemberId() + " " + memberList.get(i).getFirstName() + " " + memberList.get(i).getLastName();
         }
 
-        JComboBox memberComboBox = new JComboBox(memberStrings);
+        JComboBox<String> memberComboBox = new JComboBox<>(memberStrings);
         memberPanel.add(memberComboBox);
         PaymentEditPanel.add(memberPanel);
 

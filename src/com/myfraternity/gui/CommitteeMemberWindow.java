@@ -161,7 +161,7 @@ public class CommitteeMemberWindow {
             memberString[i] = memberList.get(i).getMemberId() + " " + memberList.get(i).getFirstName() + " " + memberList.get(i).getLastName();
         }
 
-        JComboBox memberComboBox = new JComboBox(memberString);
+        JComboBox<String> memberComboBox = new JComboBox<>(memberString);
         memberPanel.add(memberComboBox);
         CommitteeMemberEditPanel.add(memberPanel);
 
@@ -186,7 +186,7 @@ public class CommitteeMemberWindow {
             committeeString[i] = committeeList.get(i).getCommitteeId() + " " + committeeList.get(i).getName();
         }
 
-        JComboBox committeeComboBox = new JComboBox(committeeString);
+        JComboBox<String> committeeComboBox = new JComboBox<>(committeeString);
         committeePanel.add(committeeComboBox);
         CommitteeMemberEditPanel.add(committeePanel);
 

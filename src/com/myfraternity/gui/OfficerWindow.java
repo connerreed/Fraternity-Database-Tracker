@@ -202,7 +202,7 @@ public class OfficerWindow {
         }
         JLabel memberLabel = new JLabel("Member");
         memberPanel.add(memberLabel);
-        JComboBox memberComboBox = new JComboBox(memberStrings);
+        JComboBox<String> memberComboBox = new JComboBox<>(memberStrings);
         memberPanel.add(memberComboBox);
         OfficerEditPanel.add(memberPanel);
 

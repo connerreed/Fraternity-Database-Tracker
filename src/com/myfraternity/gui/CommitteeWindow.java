@@ -185,7 +185,7 @@ public class CommitteeWindow {
             chapterString[i] = chapterList.get(i).getChapter_id() + " " + chapterList.get(i).getName();
         }
 
-        JComboBox chapterComboBox = new JComboBox(chapterString);
+        JComboBox<String> chapterComboBox = new JComboBox<>(chapterString);
         chapterPanel.add(chapterComboBox);
         CommitteeEditPanel.add(chapterPanel);
 
