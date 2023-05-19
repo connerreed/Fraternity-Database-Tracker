@@ -1,16 +1,9 @@
 package com.myfraternity.gui;
 
-import com.myfraternity.dao.MemberDAOImpl;
 import com.myfraternity.dao.PaymentDAOImpl;
-import com.myfraternity.entity.Member;
 import com.myfraternity.entity.Payment;
-import com.myfraternity.entity.Payment;
-
 import javax.swing.*;
-import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
-import java.sql.Date;
 import java.util.*;
 
 public class OverdueWindow {
@@ -21,7 +14,6 @@ public class OverdueWindow {
     private JScrollPane jScrollPane;
     private final Vector<String> columnNames;
     private final float threshold;
-    private Map<Member, Payment> map;
     public OverdueWindow() {
         table = null;
         paymentViewFrame = new JFrame("OverdueView");

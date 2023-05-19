@@ -1,9 +1,6 @@
 package com.myfraternity.gui;
 
 import com.myfraternity.dao.*;
-import com.myfraternity.entity.Member;
-import com.myfraternity.entity.Payment;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.*;
@@ -15,8 +12,6 @@ public class AbsentWindow {
     private final JFrame paymentViewFrame;
     private JScrollPane jScrollPane;
     private final Vector<String> columnNames;
-    private float threshold;
-    private Map<Member, Payment> map;
     public AbsentWindow() {
         table = null;
         paymentViewFrame = new JFrame("MembersAbsentView");
@@ -26,7 +21,6 @@ public class AbsentWindow {
         paymentViewPanel = new JPanel();
 
         // Add JTable
-        java.util.List<Payment> paymentList = PaymentDAOImpl.getAllPayments();
         Vector<Vector<Object>> data = AttendanceDAOImpl.getMembersWithZeroAttendance(); // 2d vector
         columnNames = new Vector<>();
         columnNames.add("Name");

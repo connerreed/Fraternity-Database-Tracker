@@ -4,14 +4,9 @@ import com.myfraternity.dao.*;
 import com.myfraternity.dao.CommitteeMemberDAOImpl;
 import com.myfraternity.entity.*;
 import com.myfraternity.entity.CommitteeMember;
-import com.myfraternity.entity.CommitteeMember;
-import com.myfraternity.entity.Event;
-
 import javax.swing.*;
-import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
@@ -22,7 +17,6 @@ public class CommitteeMemberWindow {
     private int memberId;
     private int committeeId;
     private java.util.List<CommitteeMember> committeeMemberList;
-    private final Dimension textFieldDimension = new Dimension(200, 20);
     private JTable table;
     private final JPanel committeeMemberViewPanel;
     private final JFrame committeeMemberViewFrame;
@@ -139,7 +133,7 @@ public class CommitteeMemberWindow {
 
     public void createAddEditFrame() {
         JFrame CommitteeMemberEditFrame = new JFrame();
-        JPanel CommitteeMemberEditPanel = new JPanel(new GridLayout(3, 3)); // FIXME: on other classes, this needs to be able to hold amount of attributes
+        JPanel CommitteeMemberEditPanel = new JPanel(new GridLayout(3, 3));
         //CommitteeMemberEditPanel.setLayout(new BoxLayout(CommitteeMemberEditPanel, BoxLayout.PAGE_AXIS));
         CommitteeMemberEditFrame.setSize(750, 750);
         CommitteeMemberEditFrame.setLocationRelativeTo(null);
@@ -167,7 +161,7 @@ public class CommitteeMemberWindow {
             memberString[i] = memberList.get(i).getMemberId() + " " + memberList.get(i).getFirstName() + " " + memberList.get(i).getLastName();
         }
 
-        JComboBox memberComboBox = new JComboBox(memberString);
+        JComboBox<String> memberComboBox = new JComboBox<>(memberString);
         memberPanel.add(memberComboBox);
         CommitteeMemberEditPanel.add(memberPanel);
 
@@ -192,7 +186,7 @@ public class CommitteeMemberWindow {
             committeeString[i] = committeeList.get(i).getCommitteeId() + " " + committeeList.get(i).getName();
         }
 
-        JComboBox committeeComboBox = new JComboBox(committeeString);
+        JComboBox<String> committeeComboBox = new JComboBox<>(committeeString);
         committeePanel.add(committeeComboBox);
         CommitteeMemberEditPanel.add(committeePanel);
 
@@ -202,6 +196,7 @@ public class CommitteeMemberWindow {
         addButton.addActionListener(e -> {
             Scanner scn = new Scanner((String)memberComboBox.getSelectedItem());
             memberId = scn.nextInt();
+            scn.close();
             scn = new Scanner((String)committeeComboBox.getSelectedItem());
             committeeId = scn.nextInt();
 
@@ -213,6 +208,7 @@ public class CommitteeMemberWindow {
             CommitteeMemberEditFrame.dispose();
             addEditFrameOpen = false;
             refreshTable();
+            scn.close();
         });
         addPanel.add(addButton);
         CommitteeMemberEditPanel.add(addPanel);

@@ -133,7 +133,7 @@ public class AttendanceWindow {
 
     public void createAddEditFrame() {
         JFrame AttendanceEditFrame = new JFrame();
-        JPanel AttendanceEditPanel = new JPanel(new GridLayout(2, 2)); // FIXME: on other classes, this needs to be able to hold amount of attributes
+        JPanel AttendanceEditPanel = new JPanel(new GridLayout(2, 2));
         //AttendanceEditPanel.setLayout(new BoxLayout(AttendanceEditPanel, BoxLayout.PAGE_AXIS));
         AttendanceEditFrame.setSize(750, 750);
         AttendanceEditFrame.setLocationRelativeTo(null);
@@ -161,7 +161,7 @@ public class AttendanceWindow {
             memberString[i] = memberList.get(i).getMemberId() + " " + memberList.get(i).getFirstName() + " " + memberList.get(i).getLastName();
         }
 
-        JComboBox memberComboBox = new JComboBox(memberString);
+        JComboBox<String> memberComboBox = new JComboBox<>(memberString);
         memberPanel.add(memberComboBox);
         AttendanceEditPanel.add(memberPanel);
 
@@ -187,7 +187,7 @@ public class AttendanceWindow {
             eventString[i] = eventList.get(i).getEvent_id() + " " + eventList.get(i).getName();
         }
 
-        JComboBox eventComboBox = new JComboBox(eventString);
+        JComboBox<String> eventComboBox = new JComboBox<>(eventString);
         eventPanel.add(eventComboBox);
         AttendanceEditPanel.add(eventPanel);
 
@@ -212,9 +212,11 @@ public class AttendanceWindow {
         addButton.addActionListener(e -> {
             Scanner scn = new Scanner((String)memberComboBox.getSelectedItem());
             memberId = scn.nextInt();
+            scn.close();
             scn = new Scanner((String)eventComboBox.getSelectedItem());
             eventId = scn.nextInt();
             status = statusTextField.getText();
+            scn.close();
 
             Attendance attendance = new Attendance();
             attendance.setMemberId(memberId);

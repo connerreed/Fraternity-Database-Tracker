@@ -43,7 +43,12 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
-INSERT INTO `event` VALUES (6,'Yard Sale','2023-05-04','Stillwater','Yard sale',15),(7,'Watermelon Bust','2020-01-01','Norman','Watermelon Bust',16),(8,'House Cleaning','2020-01-01','Norman','Deep clean of the house',18);
+INSERT INTO `event` VALUES (9,"Car Wash","2023-02-13","House Parking Lot","Car wash philanthropy event",19),
+                            (10,"Golf","2023-05-03","Boston Country Club","Golf outing for members",19),
+                            (11,"Yard Sale","2023-02-14","House Front Lawn","Yard sale philanthropy event",20),
+                            (12,"Paintball","2023-04-16","Paintball fields","Paintball outing for members",20),
+                            (13,"Bake Sale","2023-03-24","The house","Bake sale philanthropy event",21),
+                            (14,"Top Golf","2023-04-16","Top Golf","Top Golf outing for members",21);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

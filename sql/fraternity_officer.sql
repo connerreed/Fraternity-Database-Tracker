@@ -42,7 +42,15 @@ CREATE TABLE `officer` (
 
 LOCK TABLES `officer` WRITE;
 /*!40000 ALTER TABLE `officer` DISABLE KEYS */;
-INSERT INTO `officer` VALUES (6,'President','2023-01-01','2024-01-01',9),(7,'President','2023-01-01','2024-01-01',10);
+INSERT INTO `officer` VALUES (8,"President",'2023-01-01','2024-01-01',17),
+                              (9,"Vice President",'2023-01-01','2024-01-01',18),
+                              (10,"Treasurer",'2023-01-01','2024-01-01',19),
+                              (11,"President",'2023-01-01','2024-01-01',27),
+                              (12,"Vice President",'2023-01-01','2024-01-01',28),
+                              (13,"Treasurer",'2023-01-01','2024-01-01',29),
+                              (14,"President",'2023-01-01','2024-01-01',37),
+                              (15,"Vice President",'2023-01-01','2024-01-01',38),
+                              (16,"Treasurer",'2023-01-01','2024-01-01',39);
 /*!40000 ALTER TABLE `officer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

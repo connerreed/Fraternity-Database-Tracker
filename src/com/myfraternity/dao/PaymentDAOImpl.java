@@ -1,11 +1,9 @@
 package com.myfraternity.dao;
 
-import com.myfraternity.entity.Chapter;
 import com.myfraternity.entity.Member;
 import com.myfraternity.entity.Payment;
 import com.myfraternity.util.DBUtil;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -60,7 +58,6 @@ public class PaymentDAOImpl {
     public static void updatePayment(Payment payment) {
         String query = "UPDATE payment SET member_id = ?, amount_due = ?, amount_initial = ?, payment_date = ?, description = ? WHERE payment_id = ?";
         try {
-            Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, payment.getMember_id());
             preparedStatement.setFloat(2, payment.getAmount_due());
