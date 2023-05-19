@@ -43,7 +43,7 @@ CREATE TABLE `payment` (
 
 LOCK TABLES `payment` WRITE;
 /*!40000 ALTER TABLE `payment` DISABLE KEYS */;
-INSERT INTO `payment` VALUES ((15,17,50,50,'2024-01-01',"New Member Dues"),
+INSERT INTO `payment` VALUES (15,17,50,50,'2024-01-01',"New Member Dues"),
                               (16,18,50,50,'2024-01-01',"New Member Dues"),
                               (17,19,50,50,'2024-01-01',"New Member Dues"),
                               (18,20,50,50,'2024-01-01',"New Member Dues"),
@@ -72,7 +72,7 @@ INSERT INTO `payment` VALUES ((15,17,50,50,'2024-01-01',"New Member Dues"),
                               (41,43,50,50,'2024-01-01',"New Member Dues"),
                               (42,44,50,50,'2024-01-01',"New Member Dues"),
                               (43,45,50,50,'2024-01-01',"New Member Dues"),
-                              (44,46,50,50,'2024-01-01',"New Member Dues"));
+                              (44,46,50,50,'2024-01-01',"New Member Dues");
 /*!40000 ALTER TABLE `payment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
