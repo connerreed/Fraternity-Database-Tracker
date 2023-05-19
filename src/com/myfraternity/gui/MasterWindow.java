@@ -33,58 +33,42 @@ public class MasterWindow {
 
         // Member JButton
         JButton memberButton = new JButton("Members");
-        memberButton.addActionListener(e -> {
-            new MemberWindow();
-        });
+        memberButton.addActionListener(e -> new MemberWindow());
         managePanel.add(memberButton);
 
         // Officer JButton
         JButton officerButton = new JButton("Officers");
-        officerButton.addActionListener(e -> {
-            new OfficerWindow();
-        });
+        officerButton.addActionListener(e -> new OfficerWindow());
         managePanel.add(officerButton);
 
         // Committee JButton
         JButton committeeButton = new JButton("Committees");
-        committeeButton.addActionListener(e -> {
-            new CommitteeWindow();
-        });
+        committeeButton.addActionListener(e -> new CommitteeWindow());
         managePanel.add(committeeButton);
 
         // CommitteeMember JButton
         JButton committeeMemberButton = new JButton("Assign Committee Members");
-        committeeMemberButton.addActionListener(e -> {
-            new CommitteeMemberWindow();
-        });
+        committeeMemberButton.addActionListener(e -> new CommitteeMemberWindow());
         managePanel.add(committeeMemberButton);
 
         // Chapter JButton
         JButton chapterButton = new JButton("Chapters");
-        chapterButton.addActionListener(e -> {
-            new ChapterWindow();
-        });
+        chapterButton.addActionListener(e -> new ChapterWindow());
         managePanel.add(chapterButton);
 
         // Attendance JButton
         JButton attendanceButton = new JButton("Record attendance");
-        attendanceButton.addActionListener(e -> {
-            new AttendanceWindow();
-        });
+        attendanceButton.addActionListener(e -> new AttendanceWindow());
         managePanel.add(attendanceButton);
 
         // Payment JButton
         JButton paymentButton = new JButton("Payments");
-        paymentButton.addActionListener(e -> {
-            new PaymentWindow();
-        });
+        paymentButton.addActionListener(e -> new PaymentWindow());
         managePanel.add(paymentButton);
 
         // Event JButton
         JButton eventButton = new JButton("Events");
-        eventButton.addActionListener(e -> {
-            new EventWindow();
-        });
+        eventButton.addActionListener(e -> new EventWindow());
         managePanel.add(eventButton);
 
 
@@ -93,37 +77,27 @@ public class MasterWindow {
         viewPanel.setLayout(new GridLayout(3, 2));
         viewPanel.setPreferredSize(new Dimension(frame.getWidth() / 2 + 50, 200));
         JButton overdueButton = new JButton("Overdue Members");
-        overdueButton.addActionListener(e -> {
-            new OverdueWindow();
-        });
+        overdueButton.addActionListener(e -> new OverdueWindow());
         viewPanel.add(overdueButton);
 
         // Events By Chapter Button
         JButton eventsByChapterButton = new JButton("Events By Chapter");
-        eventsByChapterButton.addActionListener(e -> {
-            new EventsByChapterWindow();
-        });
+        eventsByChapterButton.addActionListener(e -> new EventsByChapterWindow());
         viewPanel.add(eventsByChapterButton);
 
         // Members Absent Button
         JButton membersAbsentButton = new JButton("Members Absent");
-        membersAbsentButton.addActionListener(e -> {
-            new AbsentWindow();
-        });
+        membersAbsentButton.addActionListener(e -> new AbsentWindow());
         viewPanel.add(membersAbsentButton);
 
         // Members on Committees Button
         JButton membersOnCommitteesButton = new JButton("Members on Committees");
-        membersOnCommitteesButton.addActionListener(e -> {
-            new MemberOnCommitteesWindow();
-        });
+        membersOnCommitteesButton.addActionListener(e -> new MemberOnCommitteesWindow());
         viewPanel.add(membersOnCommitteesButton);
 
         // Current Members Button
         JButton currentOfficersButton = new JButton("Current Officers");
-        currentOfficersButton.addActionListener(e -> {
-            new CurrentOfficerWindow();
-        });
+        currentOfficersButton.addActionListener(e -> new CurrentOfficerWindow());
         viewPanel.add(currentOfficersButton);
 
         frame.add(topLabelPanel);

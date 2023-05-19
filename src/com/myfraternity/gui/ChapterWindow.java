@@ -98,31 +98,29 @@ public class ChapterWindow {
 
     public void addTableListener() {
         // Add a TableModelListener to the JTable
-        table.getModel().addTableModelListener(new TableModelListener() {
-            public void tableChanged(TableModelEvent e) {
-                // Check if the change was in a cell
-                if (e.getType() == TableModelEvent.UPDATE && e.getColumn() != TableModelEvent.ALL_COLUMNS) {
-                    // Get the row index of the edited cell
-                    int row = e.getFirstRow();
+        table.getModel().addTableModelListener(e -> {
+            // Check if the change was in a cell
+            if (e.getType() == TableModelEvent.UPDATE && e.getColumn() != TableModelEvent.ALL_COLUMNS) {
+                // Get the row index of the edited cell
+                int row = e.getFirstRow();
 
-                    // Get the values of all the cells in the edited row
-                    java.util.List<Object> rowData = new ArrayList<>();
-                    for (int i = 0; i < table.getModel().getColumnCount(); i++) {
-                        rowData.add(table.getModel().getValueAt(row, i));
-                    }
-
-
-                    // Add the row data to a List or Vector
-                    // You can then use this List or Vector to store the data for further processing
-                    java.util.List<java.util.List<Object>> tableData = new ArrayList<>();
-                    tableData.add(rowData); // edited row
-                    Chapter chapter = new Chapter();
-                    chapter.setChapter_id((Integer)rowData.get(0));
-                    chapter.setName((String)rowData.get(1));
-                    chapter.setLocation((String)rowData.get(2));
-                    chapter.setCharter_date(Date.valueOf(rowData.get(3).toString()));
-                    ChapterDAOImpl.updateChapter(chapter);
+                // Get the values of all the cells in the edited row
+                java.util.List<Object> rowData = new ArrayList<>();
+                for (int i = 0; i < table.getModel().getColumnCount(); i++) {
+                    rowData.add(table.getModel().getValueAt(row, i));
                 }
+
+
+                // Add the row data to a List or Vector
+                // You can then use this List or Vector to store the data for further processing
+                java.util.List<java.util.List<Object>> tableData = new ArrayList<>();
+                tableData.add(rowData); // edited row
+                Chapter chapter = new Chapter();
+                chapter.setChapter_id((Integer)rowData.get(0));
+                chapter.setName((String)rowData.get(1));
+                chapter.setLocation((String)rowData.get(2));
+                chapter.setCharter_date(Date.valueOf(rowData.get(3).toString()));
+                ChapterDAOImpl.updateChapter(chapter);
             }
         });
     }
@@ -140,9 +138,7 @@ public class ChapterWindow {
         JTextField nameTextField = new JTextField();
         //nameTextField.setName("Name:");
         nameTextField.setPreferredSize(textFieldDimension);
-        nameTextField.addActionListener(e -> {
-            name = e.getActionCommand();
-        });
+        nameTextField.addActionListener(e -> name = e.getActionCommand());
         JPanel namePanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel nameLabel = new JLabel("Name:"); // Create a new JLabel
         namePanel.add(nameLabel); // Add the JLabel to the JPanel
@@ -153,9 +149,7 @@ public class ChapterWindow {
 
         JTextField locationTextField = new JTextField();
         locationTextField.setPreferredSize(textFieldDimension);
-        locationTextField.addActionListener(e -> {
-            location = e.getActionCommand();
-        });
+        locationTextField.addActionListener(e -> location = e.getActionCommand());
         JPanel updatePanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel updateLabel = new JLabel("Location:"); // Create a new JLabel
         updatePanel.add(updateLabel); // Add the JLabel to the JPanel
@@ -165,9 +159,7 @@ public class ChapterWindow {
 
         JTextField charterDateTextField = new JTextField();
         charterDateTextField.setPreferredSize(textFieldDimension);
-        charterDateTextField.addActionListener(e -> {
-            date = Date.valueOf(e.getActionCommand());
-        });
+        charterDateTextField.addActionListener(e -> date = Date.valueOf(e.getActionCommand()));
         JPanel datePanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel dateLabel = new JLabel("Charter Date:"); // Create a new JLabel
         datePanel.add(dateLabel); // Add the JLabel to the JPanel

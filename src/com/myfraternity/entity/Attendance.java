@@ -52,7 +52,7 @@ public class Attendance {
 
     @Override
     public String toString() {
-        return "Attendence{" +
+        return "Attendance{" +
                 "member_id=" + memberId +
                 ", event_id=" + eventId +
                 ", status='" + status + '\'' +

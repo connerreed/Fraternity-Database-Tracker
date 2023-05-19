@@ -8,7 +8,7 @@ public class DBUtil {
 
     private static final String URL = "jdbc:mysql://localhost:3306/fraternity";
     private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "D@vid79899";
 
     private static Connection connection = null;
 

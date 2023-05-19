@@ -101,33 +101,31 @@ public class OfficerWindow {
 
     public void addTableListener() {
         // Add a TableModelListener to the JTable
-        table.getModel().addTableModelListener(new TableModelListener() {
-            public void tableChanged(TableModelEvent e) {
-                // Check if the change was in a cell
-                if (e.getType() == TableModelEvent.UPDATE && e.getColumn() != TableModelEvent.ALL_COLUMNS) {
-                    // Get the row index of the edited cell
-                    int row = e.getFirstRow();
+        table.getModel().addTableModelListener(e -> {
+            // Check if the change was in a cell
+            if (e.getType() == TableModelEvent.UPDATE && e.getColumn() != TableModelEvent.ALL_COLUMNS) {
+                // Get the row index of the edited cell
+                int row = e.getFirstRow();
 
-                    // Get the values of all the cells in the edited row
-                    java.util.List<Object> rowData = new ArrayList<>();
-                    for (int i = 0; i < table.getModel().getColumnCount(); i++) {
-                        rowData.add(table.getModel().getValueAt(row, i));
-                    }
-
-
-                    // Add the row data to a List or Vector
-                    // You can then use this List or Vector to store the data for further processing
-                    java.util.List<java.util.List<Object>> tableData = new ArrayList<>();
-                    tableData.add(rowData); // edited row
-                    Officer officer = new Officer();
-                    officer.setOfficerId((Integer)rowData.get(0)); // FIXME: not sure if primary key should be added here
-                    officer.setPosition((String)rowData.get(1));
-                    officer.setStartDate((Date)rowData.get(2));
-                    officer.setEndDate((Date)rowData.get(3));
-                    officer.setMemberId((Integer)rowData.get(4));
-
-                    OfficerDAOImpl.updateOfficer(officer);
+                // Get the values of all the cells in the edited row
+                java.util.List<Object> rowData = new ArrayList<>();
+                for (int i = 0; i < table.getModel().getColumnCount(); i++) {
+                    rowData.add(table.getModel().getValueAt(row, i));
                 }
+
+
+                // Add the row data to a List or Vector
+                // You can then use this List or Vector to store the data for further processing
+                java.util.List<java.util.List<Object>> tableData = new ArrayList<>();
+                tableData.add(rowData); // edited row
+                Officer officer = new Officer();
+                officer.setOfficerId((Integer)rowData.get(0)); // FIXME: not sure if primary key should be added here
+                officer.setPosition((String)rowData.get(1));
+                officer.setStartDate((Date)rowData.get(2));
+                officer.setEndDate((Date)rowData.get(3));
+                officer.setMemberId((Integer)rowData.get(4));
+
+                OfficerDAOImpl.updateOfficer(officer);
             }
         });
     }
@@ -145,9 +143,7 @@ public class OfficerWindow {
         JTextField positionTextField = new JTextField();
         //nameTextField.setName("Name:");
         positionTextField.setPreferredSize(textFieldDimension);
-        positionTextField.addActionListener(e -> {
-            position = e.getActionCommand();
-        });
+        positionTextField.addActionListener(e -> position = e.getActionCommand());
         JPanel positionPanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel positionLabel = new JLabel("Position:"); // Create a new JLabel
         positionPanel.add(positionLabel); // Add the JLabel to the JPanel
@@ -159,9 +155,7 @@ public class OfficerWindow {
         JTextField startDateTextField = new JTextField();
         //nameTextField.setName("Name:");
         startDateTextField.setPreferredSize(textFieldDimension);
-        startDateTextField.addActionListener(e -> {
-            startDate = java.sql.Date.valueOf(e.getActionCommand());
-        });
+        startDateTextField.addActionListener(e -> startDate = Date.valueOf(e.getActionCommand()));
         JPanel startDatePanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel startDateLabel = new JLabel("Start Date:"); // Create a new JLabel
         startDatePanel.add(startDateLabel); // Add the JLabel to the JPanel
@@ -172,9 +166,7 @@ public class OfficerWindow {
         JTextField endDateTextField = new JTextField();
         //nameTextField.setName("Name:");
         endDateTextField.setPreferredSize(textFieldDimension);
-        endDateTextField.addActionListener(e -> {
-            endDate = java.sql.Date.valueOf(e.getActionCommand());
-        });
+        endDateTextField.addActionListener(e -> endDate = Date.valueOf(e.getActionCommand()));
         JPanel endDatePanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel endDateLabel = new JLabel("End Date:"); // Create a new JLabel
         endDatePanel.add(endDateLabel); // Add the JLabel to the JPanel

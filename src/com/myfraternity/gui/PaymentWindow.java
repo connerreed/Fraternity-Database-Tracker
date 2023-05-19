@@ -103,33 +103,31 @@ public class PaymentWindow {
 
     public void addTableListener() {
         // Add a TableModelListener to the JTable
-        table.getModel().addTableModelListener(new TableModelListener() {
-            public void tableChanged(TableModelEvent e) {
-                // Check if the change was in a cell
-                if (e.getType() == TableModelEvent.UPDATE && e.getColumn() != TableModelEvent.ALL_COLUMNS) {
-                    // Get the row index of the edited cell
-                    int row = e.getFirstRow();
+        table.getModel().addTableModelListener(e -> {
+            // Check if the change was in a cell
+            if (e.getType() == TableModelEvent.UPDATE && e.getColumn() != TableModelEvent.ALL_COLUMNS) {
+                // Get the row index of the edited cell
+                int row = e.getFirstRow();
 
-                    // Get the values of all the cells in the edited row
-                    java.util.List<Object> rowData = new ArrayList<>();
-                    for (int i = 0; i < table.getModel().getColumnCount(); i++) {
-                        rowData.add(table.getModel().getValueAt(row, i));
-                    }
-
-
-                    // Add the row data to a List or Vector
-                    // You can then use this List or Vector to store the data for further processing
-                    java.util.List<java.util.List<Object>> tableData = new ArrayList<>();
-                    tableData.add(rowData); // edited row
-                    Payment payment = new Payment();
-                    payment.setPayment_id((Integer)rowData.get(0));
-                    payment.setMember_id((Integer) rowData.get(1));
-                    payment.setAmount_due((Float)rowData.get(2));
-                    payment.setAmount_initial((Float)rowData.get(3));
-                    payment.setPayment_date(Date.valueOf(rowData.get(4).toString()));
-                    payment.setDescription((String)rowData.get(5));
-                    PaymentDAOImpl.updatePayment(payment);
+                // Get the values of all the cells in the edited row
+                java.util.List<Object> rowData = new ArrayList<>();
+                for (int i = 0; i < table.getModel().getColumnCount(); i++) {
+                    rowData.add(table.getModel().getValueAt(row, i));
                 }
+
+
+                // Add the row data to a List or Vector
+                // You can then use this List or Vector to store the data for further processing
+                java.util.List<java.util.List<Object>> tableData = new ArrayList<>();
+                tableData.add(rowData); // edited row
+                Payment payment = new Payment();
+                payment.setPayment_id((Integer)rowData.get(0));
+                payment.setMember_id((Integer) rowData.get(1));
+                payment.setAmount_due((Float)rowData.get(2));
+                payment.setAmount_initial((Float)rowData.get(3));
+                payment.setPayment_date(Date.valueOf(rowData.get(4).toString()));
+                payment.setDescription((String)rowData.get(5));
+                PaymentDAOImpl.updatePayment(payment);
             }
         });
     }
@@ -180,9 +178,7 @@ public class PaymentWindow {
         // Amount Due TextField
         JTextField amountDueTextField = new JTextField();
         amountDueTextField.setPreferredSize(textFieldDimension);
-        amountDueTextField.addActionListener(e -> {
-            amountDue = Float.parseFloat(e.getActionCommand());
-        });
+        amountDueTextField.addActionListener(e -> amountDue = Float.parseFloat(e.getActionCommand()));
         JPanel amountDuePanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel amountDueLabel = new JLabel("Amount Due:"); // Create a new JLabel
         amountDuePanel.add(amountDueLabel); // Add the JLabel to the JPanel
@@ -192,9 +188,7 @@ public class PaymentWindow {
         // Amount Init TextField
         JTextField amountInitTextField = new JTextField();
         amountInitTextField.setPreferredSize(textFieldDimension);
-        amountInitTextField.addActionListener(e -> {
-            amountInit = Float.parseFloat(e.getActionCommand());
-        });
+        amountInitTextField.addActionListener(e -> amountInit = Float.parseFloat(e.getActionCommand()));
         JPanel amountInitPanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel amountInitLabel = new JLabel("Amount Init:"); // Create a new JLabel
         amountInitPanel.add(amountInitLabel); // Add the JLabel to the JPanel
@@ -204,9 +198,7 @@ public class PaymentWindow {
         // Payment Date TextField
         JTextField dateTextField = new JTextField();
         dateTextField.setPreferredSize(textFieldDimension);
-        dateTextField.addActionListener(e -> {
-            paymentDate = Date.valueOf(e.getActionCommand());
-        });
+        dateTextField.addActionListener(e -> paymentDate = Date.valueOf(e.getActionCommand()));
         JPanel datePanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel dateLabel = new JLabel("Payment Date:"); // Create a new JLabel
         datePanel.add(dateLabel); // Add the JLabel to the JPanel
@@ -217,9 +209,7 @@ public class PaymentWindow {
         // Description TextField
         JTextField descriptionTextField = new JTextField();
         descriptionTextField.setPreferredSize(textFieldDimension);
-        descriptionTextField.addActionListener(e -> {
-            description = e.getActionCommand();
-        });
+        descriptionTextField.addActionListener(e -> description = e.getActionCommand());
         JPanel descriptionPanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel descriptionLabel = new JLabel("Description:"); // Create a new JLabel
         descriptionPanel.add(descriptionLabel); // Add the JLabel to the JPanel

@@ -107,36 +107,34 @@ public class MemberWindow {
 
     public void addTableListener() {
         // Add a TableModelListener to the JTable
-        table.getModel().addTableModelListener(new TableModelListener() {
-            public void tableChanged(TableModelEvent e) {
-                // Check if the change was in a cell
-                if (e.getType() == TableModelEvent.UPDATE && e.getColumn() != TableModelEvent.ALL_COLUMNS) {
-                    // Get the row index of the edited cell
-                    int row = e.getFirstRow();
+        table.getModel().addTableModelListener(e -> {
+            // Check if the change was in a cell
+            if (e.getType() == TableModelEvent.UPDATE && e.getColumn() != TableModelEvent.ALL_COLUMNS) {
+                // Get the row index of the edited cell
+                int row = e.getFirstRow();
 
-                    // Get the values of all the cells in the edited row
-                    java.util.List<Object> rowData = new ArrayList<>();
-                    for (int i = 0; i < table.getModel().getColumnCount(); i++) {
-                        rowData.add(table.getModel().getValueAt(row, i));
-                    }
-
-
-                    // Add the row data to a List or Vector
-                    // You can then use this List or Vector to store the data for further processing
-                    java.util.List<java.util.List<Object>> tableData = new ArrayList<>();
-                    tableData.add(rowData); // edited row
-                    Member member = new Member();
-                    member.setMemberId((Integer)rowData.get(0));
-                    member.setFirstName((String)rowData.get(1));
-                    member.setLastName((String)rowData.get(2));
-                    member.setEmail((String)rowData.get(3));
-                    member.setPhoneNumber((String)rowData.get(4));
-                    member.setDateOfBirth(Date.valueOf(rowData.get(5).toString()));
-                    member.setStatus((String)rowData.get(6));
-                    member.setChapterId((Integer)rowData.get(7));
-
-                    MemberDAOImpl.updateMember(member);
+                // Get the values of all the cells in the edited row
+                java.util.List<Object> rowData = new ArrayList<>();
+                for (int i = 0; i < table.getModel().getColumnCount(); i++) {
+                    rowData.add(table.getModel().getValueAt(row, i));
                 }
+
+
+                // Add the row data to a List or Vector
+                // You can then use this List or Vector to store the data for further processing
+                java.util.List<java.util.List<Object>> tableData = new ArrayList<>();
+                tableData.add(rowData); // edited row
+                Member member = new Member();
+                member.setMemberId((Integer)rowData.get(0));
+                member.setFirstName((String)rowData.get(1));
+                member.setLastName((String)rowData.get(2));
+                member.setEmail((String)rowData.get(3));
+                member.setPhoneNumber((String)rowData.get(4));
+                member.setDateOfBirth(Date.valueOf(rowData.get(5).toString()));
+                member.setStatus((String)rowData.get(6));
+                member.setChapterId((Integer)rowData.get(7));
+
+                MemberDAOImpl.updateMember(member);
             }
         });
     }
@@ -154,9 +152,7 @@ public class MemberWindow {
         JTextField firstNameTextField = new JTextField();
         //nameTextField.setName("Name:");
         firstNameTextField.setPreferredSize(textFieldDimension);
-        firstNameTextField.addActionListener(e -> {
-            firstName = e.getActionCommand();
-        });
+        firstNameTextField.addActionListener(e -> firstName = e.getActionCommand());
         JPanel firstNamePanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel firstNameLabel = new JLabel("First Name:"); // Create a new JLabel
         firstNamePanel.add(firstNameLabel); // Add the JLabel to the JPanel
@@ -168,9 +164,7 @@ public class MemberWindow {
         JTextField lastNameTextField = new JTextField();
         //nameTextField.setName("Name:");
         lastNameTextField.setPreferredSize(textFieldDimension);
-        lastNameTextField.addActionListener(e -> {
-            lastName = e.getActionCommand();
-        });
+        lastNameTextField.addActionListener(e -> lastName = e.getActionCommand());
         JPanel lastNamePanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel lastNameLabel = new JLabel("Last Name:"); // Create a new JLabel
         lastNamePanel.add(lastNameLabel); // Add the JLabel to the JPanel
@@ -181,9 +175,7 @@ public class MemberWindow {
         JTextField emailTextField = new JTextField();
         //nameTextField.setName("Name:");
         emailTextField.setPreferredSize(textFieldDimension);
-        emailTextField.addActionListener(e -> {
-            email = e.getActionCommand();
-        });
+        emailTextField.addActionListener(e -> email = e.getActionCommand());
         JPanel emailPanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel emailLabel = new JLabel("Email:"); // Create a new JLabel
         emailPanel.add(emailLabel); // Add the JLabel to the JPanel
@@ -194,9 +186,7 @@ public class MemberWindow {
         JTextField phoneNumberTextField = new JTextField();
         //nameTextField.setName("Name:");
         phoneNumberTextField.setPreferredSize(textFieldDimension);
-        phoneNumberTextField.addActionListener(e -> {
-            phoneNumber = e.getActionCommand();
-        });
+        phoneNumberTextField.addActionListener(e -> phoneNumber = e.getActionCommand());
         JPanel phoneNumberPanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel phoneNumberLabel = new JLabel("Phone Number:"); // Create a new JLabel
         phoneNumberPanel.add(phoneNumberLabel); // Add the JLabel to the JPanel
@@ -206,9 +196,7 @@ public class MemberWindow {
         // Date of Birth TextField
         JTextField dateTextField = new JTextField();
         dateTextField.setPreferredSize(textFieldDimension);
-        dateTextField.addActionListener(e -> {
-            dateOfBirth = Date.valueOf(e.getActionCommand());
-        });
+        dateTextField.addActionListener(e -> dateOfBirth = Date.valueOf(e.getActionCommand()));
         JPanel datePanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel dateLabel = new JLabel("Date of Birth:"); // Create a new JLabel
         datePanel.add(dateLabel); // Add the JLabel to the JPanel
@@ -219,9 +207,7 @@ public class MemberWindow {
         JTextField statusTextField = new JTextField();
         //nameTextField.setName("Name:");
         statusTextField.setPreferredSize(textFieldDimension);
-        statusTextField.addActionListener(e -> {
-            status = e.getActionCommand();
-        });
+        statusTextField.addActionListener(e -> status = e.getActionCommand());
         JPanel statusPanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel statusLabel = new JLabel("Status:"); // Create a new JLabel
         statusPanel.add(statusLabel); // Add the JLabel to the JPanel

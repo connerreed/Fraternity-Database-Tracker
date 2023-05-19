@@ -96,7 +96,7 @@ public class PaymentDAOImpl {
     public static Vector<Vector<Object>> getPaymentsOverThreshold(float threshold) {
         Vector<Vector<Object>> vector = new Vector<>();
         String query = "SELECT m.first_name, m.last_name, p.amount_due FROM Payment p INNER JOIN Member m ON p.member_id = m.member_id WHERE p.amount_due > " + threshold;
-        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement;
         try {
             preparedStatement = DBUtil.getConnection().prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();

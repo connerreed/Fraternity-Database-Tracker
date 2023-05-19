@@ -102,31 +102,29 @@ public class AttendanceWindow {
 
     public void addTableListener() {
         // Add a TableModelListener to the JTable
-        table.getModel().addTableModelListener(new TableModelListener() {
-            public void tableChanged(TableModelEvent e) {
-                // Check if the change was in a cell
-                if (e.getType() == TableModelEvent.UPDATE && e.getColumn() != TableModelEvent.ALL_COLUMNS) {
-                    // Get the row index of the edited cell
-                    int row = e.getFirstRow();
+        table.getModel().addTableModelListener(e -> {
+            // Check if the change was in a cell
+            if (e.getType() == TableModelEvent.UPDATE && e.getColumn() != TableModelEvent.ALL_COLUMNS) {
+                // Get the row index of the edited cell
+                int row = e.getFirstRow();
 
-                    // Get the values of all the cells in the edited row
-                    java.util.List<Object> rowData = new ArrayList<>();
-                    for (int i = 0; i < table.getModel().getColumnCount(); i++) {
-                        rowData.add(table.getModel().getValueAt(row, i));
-                    }
-
-
-                    // Add the row data to a List or Vector
-                    // You can then use this List or Vector to store the data for further processing
-                    java.util.List<java.util.List<Object>> tableData = new ArrayList<>();
-                    tableData.add(rowData); // edited row
-                    Attendance attendance = new Attendance();
-                    attendance.setMemberId((Integer)rowData.get(0));
-                    attendance.setEventId((Integer)rowData.get(1));
-                    attendance.setStatus((String)rowData.get(2));
-
-                    AttendanceDAOImpl.updateAttendance(attendance);
+                // Get the values of all the cells in the edited row
+                java.util.List<Object> rowData = new ArrayList<>();
+                for (int i = 0; i < table.getModel().getColumnCount(); i++) {
+                    rowData.add(table.getModel().getValueAt(row, i));
                 }
+
+
+                // Add the row data to a List or Vector
+                // You can then use this List or Vector to store the data for further processing
+                java.util.List<java.util.List<Object>> tableData = new ArrayList<>();
+                tableData.add(rowData); // edited row
+                Attendance attendance = new Attendance();
+                attendance.setMemberId((Integer)rowData.get(0));
+                attendance.setEventId((Integer)rowData.get(1));
+                attendance.setStatus((String)rowData.get(2));
+
+                AttendanceDAOImpl.updateAttendance(attendance);
             }
         });
     }
@@ -195,9 +193,7 @@ public class AttendanceWindow {
         JTextField statusTextField = new JTextField();
         //nameTextField.setName("Name:");
         statusTextField.setPreferredSize(textFieldDimension);
-        statusTextField.addActionListener(e -> {
-            status = e.getActionCommand();
-        });
+        statusTextField.addActionListener(e -> status = e.getActionCommand());
         JPanel statusPanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // Create a new JPanel with a FlowLayout
         JLabel statusLabel = new JLabel("Status:"); // Create a new JLabel
         statusPanel.add(statusLabel); // Add the JLabel to the JPanel
