@@ -41,7 +41,27 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES (9,7,'Absent'),(10,6,'Present');
+INSERT INTO `attendance` VALUES ((17,9,"Present"),
+                                 (17,10,"Present"),
+                                 (18,9,"Present"),
+                                 (20,10,"Present"),
+                                 (22,9,"Present"),
+                                 (24,10,"Present"),
+                                 (25,9,"Present"),
+                                 (26,10,"Present"),
+                                 (27,11,"Present"),
+                                 (27,12,"Present"),
+                                 (28,12,"Present"),
+                                 (30,11,"Present"),
+                                 (31,11,"Present"),
+                                 (32,12,"Present"),
+                                 (36,12,"Present"),
+                                 (37,13,"Present"),
+                                 (37,14,"Present"),
+                                 (40,13,"Present"),
+                                 (43,14,"Present"),
+                                 (44,13,"Present"),
+                                 (46,14,"Present"));
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
