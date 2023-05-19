@@ -45,7 +45,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT INTO `member` VALUES ((17,"Will","Cox","willcox@gmail.com","346-976-8453","2000-09-25","Active",19),
+INSERT INTO `member` VALUES (17,"Will","Cox","willcox@gmail.com","346-976-8453","2000-09-25","Active",19),
                              (18,"Chase","Hammond","chasehammond@gmail.com","645-345-9761","2001-11-13","Active",19),
                              (19,"Randall","Boone","randallboone@gmail.com","946-873-1346","2001-07-26","Active",19),
                              (20,"Michael","Hernandez","michaelhernandez@gmail.com","346-516-9462","2003-05-16","Active",19),
@@ -74,7 +74,7 @@ INSERT INTO `member` VALUES ((17,"Will","Cox","willcox@gmail.com","346-976-8453"
                              (43,'Craig','Palmer','craigpalmer@gmail.com','302-648-9130','2001-06-18','Active',21),
                              (44,'Ryan','Thompson','ryanthompson@gmail.com','378-918-8463','2003-06-27','Active',21),
                              (45,'Hector','Holmes','hectorholmes@gmail.com','648-815-9433','2004-12-01','Active',21),
-                             (46,'Michael','Green','michaelgreen@gmail.com','405-609-8463','2003-02-10','Active',21));
+                             (46,'Michael','Green','michaelgreen@gmail.com','405-609-8463','2003-02-10','Active',21);
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;

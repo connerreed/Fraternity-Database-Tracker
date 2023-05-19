@@ -40,7 +40,7 @@ CREATE TABLE `committee_member` (
 
 LOCK TABLES `committee_member` WRITE;
 /*!40000 ALTER TABLE `committee_member` DISABLE KEYS */;
-INSERT INTO `committee_member` VALUES ((20,12),
+INSERT INTO `committee_member` VALUES (20,12),
                                        (21,12),
                                        (22,12),
                                        (30,13),
@@ -57,7 +57,7 @@ INSERT INTO `committee_member` VALUES ((20,12),
                                        (35,16),
                                        (43,17),
                                        (44,17),
-                                       (45,17));
+                                       (45,17);
 /*!40000 ALTER TABLE `committee_member` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -41,7 +41,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES ((17,9,"Present"),
+INSERT INTO `attendance` VALUES (17,9,"Present"),
                                  (17,10,"Present"),
                                  (18,9,"Present"),
                                  (20,10,"Present"),
@@ -61,7 +61,7 @@ INSERT INTO `attendance` VALUES ((17,9,"Present"),
                                  (40,13,"Present"),
                                  (43,14,"Present"),
                                  (44,13,"Present"),
-                                 (46,14,"Present"));
+                                 (46,14,"Present");
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

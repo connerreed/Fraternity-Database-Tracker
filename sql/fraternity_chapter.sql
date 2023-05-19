@@ -39,9 +39,9 @@ CREATE TABLE `chapter` (
 
 LOCK TABLES `chapter` WRITE;
 /*!40000 ALTER TABLE `chapter` DISABLE KEYS */;
-INSERT INTO `chapter` VALUES ((19,"Alpha","Boston","1909-05-19"),
+INSERT INTO `chapter` VALUES (19,"Alpha","Boston","1909-05-19"),
                               (20,"Beta","Philadelphia","1912-08-15"),
-                              (21,"Gamma","Providence","1912-09-10"));
+                              (21,"Gamma","Providence","1912-09-10");
 /*!40000 ALTER TABLE `chapter` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

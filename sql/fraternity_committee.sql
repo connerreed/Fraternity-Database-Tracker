@@ -41,12 +41,12 @@ CREATE TABLE `committee` (
 
 LOCK TABLES `committee` WRITE;
 /*!40000 ALTER TABLE `committee` DISABLE KEYS */;
-INSERT INTO `committee` VALUES ((12,"Grades","Keeps track of member grades",19),
+INSERT INTO `committee` VALUES (12,"Grades","Keeps track of member grades",19),
                                 (13,"Grades","Keeps track of member grades",20),
                                 (14,"Grades","Keeps track of member grades",21),
                                 (15,"Cleaning","Manages cleaning of the house",19),
                                 (16,"Cleaning","Manages cleaning of the house",20),
-                                (17,"Cleaning","Manages cleaning of the house",21));
+                                (17,"Cleaning","Manages cleaning of the house",21);
 /*!40000 ALTER TABLE `committee` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
